@@ -1,12 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
-
-const APP_ID = 433246930850633;
+import logIn from "../logIn";
 
 const SignInScreen = props => (
   <SafeAreaView style={styles.container}>
     <Text>Sign In</Text>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={logIn}>
       <Text>Log in with facebook</Text>
     </TouchableOpacity>
   </SafeAreaView>
