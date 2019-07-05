@@ -6,6 +6,7 @@ const WelcomeScreen = props => (
     <Text>Welcome ot this amazing app.</Text>
   </View>
 );
+
 export default WelcomeScreen;
 
 const styles = StyleSheet.create({
