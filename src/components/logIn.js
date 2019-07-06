@@ -1,5 +1,5 @@
 import * as Facebook from "expo-facebook";
-import { Alert } from "react-native";
+import { Alert, AsyncStorage } from "react-native";
 import APP_ID from "../APP_ID";
 
 const logIn = async () => {
@@ -16,6 +16,7 @@ const logIn = async () => {
         `https://graph.facebook.com/me?access_token=${token}`
       );
       Alert.alert("Logged in!", `Hi ${(await response.json()).name}!`);
+      await AsyncStorage.setItem("userToken", token);
     } else {
       // type === 'cancel'
     }

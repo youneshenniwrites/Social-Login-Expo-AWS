@@ -1,15 +1,27 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
-import logIn from "../logIn";
+import {
+  StyleSheet,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+  AsyncStorage
+} from "react-native";
+// import logIn from "../logIn";
 
-const SignInScreen = props => (
-  <SafeAreaView style={styles.container}>
-    <Text>Sign In</Text>
-    <TouchableOpacity onPress={logIn}>
-      <Text>Log in with facebook</Text>
-    </TouchableOpacity>
-  </SafeAreaView>
-);
+const SignInScreen = props => {
+  const _signInAsync = async () => {
+    await AsyncStorage.setItem("userToken", "abc");
+    props.navigation.navigate("App");
+  };
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>Sign In</Text>
+      <TouchableOpacity onPress={_signInAsync}>
+        <Text>Log in with facebook</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+};
 
 export default SignInScreen;
 
